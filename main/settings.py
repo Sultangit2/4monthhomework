@@ -1,5 +1,9 @@
+
+
 from pathlib import Path
 import os
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -8,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-5b536$vzw9xj_0y5w82htd=prtl9r@fhk4^4++!^775hd-4iz1'
+SECRET_KEY = 'django-insecure-frtzyz$=%qh3cddylybcb(9*znlg@&u%-@*k6fidctk8dw*gr@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -27,7 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'book',
     'phone_app',
-
+    'parser_app',
+    'custom_users',
 ]
 
 MIDDLEWARE = [
@@ -41,12 +46,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [os.path.join(SETTINGS_PATH, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,7 +117,6 @@ MEDIA_ROOT = 'media/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-
 ]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
